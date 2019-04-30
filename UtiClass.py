@@ -3,6 +3,7 @@ import numpy as n
 import serial
 import io
 import time
+from os.path import expanduser
 
 # To instantiate a Uti class object call:
 #> myUti = UtiClass.Uti(<port>)
@@ -67,7 +68,7 @@ class Uti:
 		return self.REF_CAP
 		
 	# Path to data storage location
-	DATA_PATH = 'C:\\Users\\Dylan\\Google Drive\\Research\\XENA-FOXe\\Level Sensors\\data\\'
+	DATA_PATH = expanduser("~")
 	def set_DATA_PATH(self, path):
 		self.DATA_PATH = path
 	def get_DATA_PATH(self):

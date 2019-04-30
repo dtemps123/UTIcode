@@ -36,7 +36,6 @@ class LevelSensors:
 		self.UTI_OBJ = UTI.Uti(uti_port)
 		self.UTI_OBJ.InitializeUti()
 		self.UTI_OBJ.set_REF_CAP(1.28)
-		# self.UTI_OBJ.set_DATA_PATH('C:\\Users\\Dylan\\Google Drive\\Research\\XENA-FOXe\\Level Sensors\\data\\')
 		
 	def MakeLogDecision(self, raw_vals, cap_vals):
 		if(self.SAVE_FORMAT=='cap'):
