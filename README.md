@@ -1,5 +1,5 @@
 # UTIcode
-Python code for interfacing with the Universal Transducer Interface evaluation boards from SmartTec.
+Python code for interfacing with the Universal Transducer Interface evaluation boards from SmartTec. This code has been tested extensively on Windows 10 and Windows 7. It has not been tested on Linux, but in theory should work just fine, as long as the serial connection is initialized properly.
 
 Target Python version = 2.7
 Python dependencies: `numpy`, `time`, `os`, `io`, `serial`

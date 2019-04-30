@@ -2,7 +2,7 @@ import LevelSensorClass as LS
 
 COMport = 0
 MyLs = LS.LevelSensors(COMport)
-# MyLs.UTI_OBJ.set_DATA_PATH('C:\\Path\\to\\data\\')
+# MyLs.UTI_OBJ.set_DATA_PATH('C:\\Path\\to\\data\\')	# Note default path is user home directory
 MyLs.set_SAVE_FORMAT('cap') #{'raw', 'cap'}
 MyLs.set_DATA_FORMAT('csv') #{'bin', 'csv'}
 MyLs.set_DELAY_STEP(0.01)
