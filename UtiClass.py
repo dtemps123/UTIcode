@@ -98,10 +98,14 @@ class Uti:
 			# else: return 0
 			ser_obj.open()
 			return ser_obj
-		except serial.serialutil.SerialException:
-			print 'Cannot connect to UTI - verify port'
+		except serial.serialutil.SerialException as e:
+			print 'Cannot connect to UTI - verify port number and physical connection.'
+			print 'Full exception text:'
+			print '\t' + str(e)
+			print 'If this is Errno 13: permission denied, try the following command:'
+			print '\tsudo chmod 666 /dev/ttyUSB<#>'
 			quit()
-		
+
 	# Initialize the level sensor board for 5 capacitance measurement
 	# Returns:
 	# 	ans - response from help request
@@ -213,4 +217,8 @@ class Uti:
 			
 	def __init__(self, port_num):
 		self.COM_NUM = port_num
-		self.SER_OBJ = self.SerialConnect('COM'+str(port_num))
+		if os.name == 'posix':
+			this_port_str = '/dev/ttyUSB'+str(port_num)
+		else:
+			this_port_str = 'COM'+str(port_num)
+		self.SER_OBJ = self.SerialConnect(this_port_str)
