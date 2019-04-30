@@ -3,6 +3,7 @@ import numpy as n
 import serial
 import io
 import time
+import os
 from os.path import expanduser
 
 # To instantiate a Uti class object call:
@@ -69,6 +70,10 @@ class Uti:
 		
 	# Path to data storage location
 	DATA_PATH = expanduser("~")
+	if os.name == 'posix':
+		DATA_PATH = DATA_PATH + '/'
+	else:
+		DATA_PATH = DATA_PATH + '\\'
 	def set_DATA_PATH(self, path):
 		self.DATA_PATH = path
 	def get_DATA_PATH(self):
@@ -175,13 +180,11 @@ class Uti:
 		try:
 			self.SER_OBJ.write('m')
 			answer = self.SER_OBJ.read(self.N_MEAS*7+2)
-			# print answer
 			str_vals = answer.split(' ',self.N_MEAS+1)
 			int_vals = n.zeros(self.N_MEAS)
 			for i in n.arange(self.N_MEAS):
 				if str_vals[i] == '': return n.zeros(self.N_MEAS)
 				int_vals[i] = int(str_vals[i],16)
-			# self.LogRawValuesCsv(int_vals)
 			return int_vals
 		except serial.serialutil.SerialException:
 			print 'Serial connection error, check UTI'
@@ -199,20 +202,15 @@ class Uti:
 		cap_vals = n.zeros(self.N_SENSORS)
 		C_BA = int_vals[0]
 		C_CA = int_vals[1]
-		# C_DA = int_vals[2]
-		# C_EA = int_vals[3]
-		# C_FA = int_vals[4]
 		
 		for i in n.arange(self.N_SENSORS):
 			this_cap = int_vals[i+2]
 			ratio = float(this_cap - C_BA)/float(C_CA-C_BA)
 			cap_vals[i] = self.REF_CAP * ratio
 			
-		# self.LogCapValuesCsv(cap_vals)
 		return cap_vals
 		
 			
 	def __init__(self, port_num):
 		self.COM_NUM = port_num
 		self.SER_OBJ = self.SerialConnect('COM'+str(port_num))
-		# self.initialize_ls()

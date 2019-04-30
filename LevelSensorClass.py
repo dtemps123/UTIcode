@@ -104,7 +104,7 @@ class LevelSensors:
 			self.MakeLogDecision(raw_vals, cap_vals)
 			print raw_vals
 			print cap_vals
-			# time.sleep(self.DELAY_STEP)
+			time.sleep(self.DELAY_STEP)
 		self.UTI_OBJ.SerialDisconnect()
 		
 	def MakeInfMeasurements(self):

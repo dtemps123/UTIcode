@@ -2,7 +2,7 @@
 Python code for interfacing with the Universal Transducer Interface evaluation boards from SmartTec.
 
 Target Python version = 2.7
-Python dependencies: `numpy`, `time`, `os.path`, `io`, `serial`
+Python dependencies: `numpy`, `time`, `os`, `io`, `serial`
 
 Description of files:
 - `UtiClass.py`: Lowest-level interface with UTI board over serial connection. Handles all reading and writing to/from the UTI board. Defines all methods and attributes of the `Uti` class object. This is general, and can be used with the UTI in any mode (though it has only been tested in the 5-capacitor mode).
