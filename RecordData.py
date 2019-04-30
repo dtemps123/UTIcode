@@ -1,11 +1,11 @@
 import LevelSensorClass as LS
 
-COMport = 6
+COMport = 0
 MyLs = LS.LevelSensors(COMport)
-MyLs.UTI_OBJ.set_DATA_PATH('C:\\Path\\to\\data\\')
-MyLs.set_SAVE_FORMAT('raw') #{'raw', 'cap'}
-MyLs.set_DATA_FORMAT('bin') #{'bin', 'csv'}
-MyLs.set_DELAY_STEP(0.001)
+# MyLs.UTI_OBJ.set_DATA_PATH('C:\\Path\\to\\data\\')
+MyLs.set_SAVE_FORMAT('cap') #{'raw', 'cap'}
+MyLs.set_DATA_FORMAT('csv') #{'bin', 'csv'}
+MyLs.set_DELAY_STEP(0.01)
 MyLs.InitializeBinaryFiles()
 
 # This will take 1000 measurements
