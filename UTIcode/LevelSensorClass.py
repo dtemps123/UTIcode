@@ -1,4 +1,4 @@
-import UtiClass as UTI
+import UTIcode.UtiClass as UTI
 import numpy as n
 import time
 import os.path
@@ -93,8 +93,8 @@ class LevelSensors:
 		raw_vals = self.UTI_OBJ.PollUtiVals()
 		cap_vals = self.UTI_OBJ.CalculateCapacitance(raw_vals)
 		self.MakeLogDecision(raw_vals, cap_vals)
-		print raw_vals
-		print cap_vals
+		print( raw_vals )
+		print( cap_vals )
 		
 	def MakeNumMeasurements(self, n_meas):
 		self.UTI_OBJ.InitializeUti()
@@ -102,8 +102,8 @@ class LevelSensors:
 			raw_vals = self.UTI_OBJ.PollUtiVals()
 			cap_vals = self.UTI_OBJ.CalculateCapacitance(raw_vals)
 			self.MakeLogDecision(raw_vals, cap_vals)
-			print raw_vals
-			print cap_vals
+			print( raw_vals )
+			print( cap_vals )
 			time.sleep(self.DELAY_STEP)
 		self.UTI_OBJ.SerialDisconnect()
 		
@@ -113,7 +113,7 @@ class LevelSensors:
 			raw_vals = self.UTI_OBJ.PollUtiVals()
 			cap_vals = self.UTI_OBJ.CalculateCapacitance(raw_vals)
 			self.MakeLogDecision(raw_vals, cap_vals)
-			print raw_vals
-			print cap_vals
+			print( raw_vals )
+			print( cap_vals )
 			time.sleep(self.DELAY_STEP)
 		

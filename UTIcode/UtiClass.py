@@ -98,12 +98,12 @@ class Uti:
 			# else: return 0
 			ser_obj.open()
 			return ser_obj
-		except serial.serialutil.SerialException as e:
-			print 'Cannot connect to UTI - verify port number and physical connection.'
-			print 'Full exception text:'
-			print '\t' + str(e)
-			print 'If this is Errno 13: permission denied, try the following command:'
-			print '\tsudo chmod 666 /dev/ttyUSB<#>'
+		except serial.SerialException as e:
+			print( 'Cannot connect to UTI - verify port number and physical connection.')
+			print( 'Full exception text:')
+			print( '\t' + str(e))
+			print( 'If this is Errno 13: permission denied, try the following command:')
+			print( '\tsudo chmod 666 /dev/ttyUSB<#>')
 			quit()
 
 	# Initialize the level sensor board for 5 capacitance measurement
@@ -114,7 +114,7 @@ class Uti:
 		self.SER_OBJ.write('H')
 		ans = self.SER_OBJ.read(1500)
 		self.SER_OBJ.write(self.UTI_MODE)
-		print self.UTI_MODE
+		print( self.UTI_MODE )
 		return ans
 		
 	# Disconnect serial port object from port
@@ -190,8 +190,8 @@ class Uti:
 				if str_vals[i] == '': return n.zeros(self.N_MEAS)
 				int_vals[i] = int(str_vals[i],16)
 			return int_vals
-		except serial.serialutil.SerialException:
-			print 'Serial connection error, check UTI'
+		except serial.SerialException:
+			print( 'Serial connection error, check UTI' )
 			quit()
 			
 		

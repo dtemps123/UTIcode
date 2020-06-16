@@ -1,4 +1,4 @@
-import LevelSensorClass as LS
+import UTIcode.LevelSensorClass as LS
 
 COMport = 0
 MyLs = LS.LevelSensors(COMport)

@@ -1,0 +1,8 @@
+README.md
+setup.py
+uticode.egg-info/PKG-INFO
+uticode.egg-info/SOURCES.txt
+uticode.egg-info/dependency_links.txt
+uticode.egg-info/not-zip-safe
+uticode.egg-info/requires.txt
+uticode.egg-info/top_level.txt
